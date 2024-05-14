@@ -11,11 +11,6 @@ def main():
     for letter in letters:
         _, _, width, height = font.getbbox(letter)
 
-
-        print(height)
-        print(font.getbbox(letter))
-        print()
-
         image = Image.new("RGB", (width, height), (255, 255, 255))
         draw = ImageDraw.Draw(image)
         draw.text((0, 0), letter, font=font, fill=(0, 0, 0))
