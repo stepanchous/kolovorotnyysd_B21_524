@@ -3,17 +3,15 @@ from pathlib import Path
 from math import ceil
 
 def main():
-    height_padding = 5
-
     letters = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
-    font = ImageFont.truetype("font/CaskaydiaMonoNerdFont-Regular.ttf", 20)
+    font = ImageFont.truetype("font/CaskaydiaMonoNerdFont-Regular.ttf", 69)
 
     for letter in letters:
         _, _, width, height = font.getbbox(letter)
 
-        image = Image.new("RGB", (width, height), (255, 255, 255))
+        image = Image.new("L", (width, height), color="white")
         draw = ImageDraw.Draw(image)
-        draw.text((0, 0), letter, font=font, fill=(0, 0, 0))
+        draw.text((0, 0), letter, font=font, color="black")
         image.save(f"font/{letter}.png")
 
 if __name__ == '__main__':
